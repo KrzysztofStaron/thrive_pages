@@ -1,4 +1,3 @@
-import React, { useRef } from "react";
 import data from "@/data/quotes.json";
 
 interface Quote {
