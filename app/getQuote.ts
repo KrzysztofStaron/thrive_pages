@@ -6,7 +6,7 @@ interface Quote {
   author: string;
 }
 
-const useQuote = () => {
+const getQuote = () => {
   function randomQuote(): Quote {
     const quote = data[Math.floor(Math.random() * data.length)];
     const regex = /^(.*?)\s[-—]\s(.+)$/;
@@ -22,13 +22,13 @@ const useQuote = () => {
     }
   }
 
-  const quote = useRef({ text: "", author: "" });
+  let quote = { text: "", author: "" };
 
-  while (quote.current.text == "" || quote.current.author == "") {
-    quote.current = randomQuote();
+  while (quote.text == "" || quote.author == "") {
+    quote = randomQuote();
   }
 
-  return [quote.current.text, quote.current.author];
+  return quote;
 };
 
-export default useQuote;
+export default getQuote;
