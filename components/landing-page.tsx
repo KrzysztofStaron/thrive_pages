@@ -56,7 +56,11 @@ export function LandingPageComponent() {
                   No distractions. Just you and your thoughts. Build a habit of daily reflection.
                 </p>
               </div>
-
+              <div className="flex flex-col items-center space-y-3 text-center">
+                <TrendingUp className="h-12 w-12 text-blue-400" />
+                <h2 className="text-xl font-bold text-white">Track Your Progress</h2>
+                <p className="text-gray-300">Go back and reflect on your growth</p>
+              </div>
               <div className="flex flex-col items-center space-y-3 text-center">
                 <Shield className="h-12 w-12 text-blue-400" />
                 <h2 className="text-xl font-bold text-white">Challenge Yourself</h2>
@@ -80,14 +84,14 @@ export function LandingPageComponent() {
                 </p>
               </div>
               <div className="flex flex-col justify-center space-y-4">
-                <div className="flex items-center space-x-4 rounded-lg border p-4 border-gray-700 dark:border-neutral-800">
+                <div className="flex items-center space-x-4 rounded-lg border border-neutral-200 p-4 border-gray-700 dark:border-neutral-800">
                   <PenLine className="h-6 w-6 text-blue-400" />
                   <div className="space-y-1">
                     <h3 className="font-bold text-white">Distraction-Free Writing</h3>
                     <p className="text-sm text-gray-300">A clean, focused interface for your daily reflections.</p>
                   </div>
                 </div>
-                <div className="flex items-center space-x-4 rounded-lg border p-4 border-gray-700 dark:border-neutral-800">
+                <div className="flex items-center space-x-4 rounded-lg border border-neutral-200 p-4 border-gray-700 dark:border-neutral-800">
                   <Focus className="h-6 w-6 text-blue-400" />
                   <div className="space-y-1">
                     <h3 className="font-bold text-white">Habit Building</h3>
@@ -96,7 +100,7 @@ export function LandingPageComponent() {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center space-x-4 rounded-lg border p-4 border-gray-700 dark:border-neutral-800">
+                <div className="flex items-center space-x-4 rounded-lg border border-neutral-200 p-4 border-gray-700 dark:border-neutral-800">
                   <Shield className="h-6 w-6 text-blue-400" />
                   <div className="space-y-1">
                     <h3 className="font-bold text-white">Challenge Tracking</h3>
