@@ -110,9 +110,14 @@ const DailyJournal = () => {
   };
 
   const updateGoal = (index: number, updates: Partial<Goal>) => {
-    const newGoals = [...entry.goals];
-    newGoals[index] = { ...newGoals[index], ...updates };
-    updateEntry({ goals: newGoals });
+    setEntry(prevEntry => {
+      const newGoals = [...prevEntry.goals];
+      newGoals[index] = { ...newGoals[index], ...updates };
+      return {
+        ...prevEntry,
+        goals: newGoals,
+      };
+    });
   };
 
   const getSliderColor = (value: number) => {
@@ -210,8 +215,7 @@ const DailyJournal = () => {
           <div key={index} className="flex items-center space-x-2">
             <Checkbox
               checked={goal.completed}
-              onCheckedChange={checked => updateGoal(index, { completed: !!checked })}
-              setChecked={() => {}}
+              setChecked={checked => updateGoal(index, { completed: !goal.completed })}
             />
             <Input
               placeholder={`Goal ${index + 1}`}
