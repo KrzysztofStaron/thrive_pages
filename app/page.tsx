@@ -1,11 +1,11 @@
 "use client";
 
-import { DarkLogin } from "./auth/logIn";
+import { LandingPageComponent } from "@/components/landing-page";
 
 const page = () => {
   return (
     <>
-      <DarkLogin />
+      <LandingPageComponent />
     </>
   );
 };

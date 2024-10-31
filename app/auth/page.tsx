@@ -21,7 +21,8 @@ enum state {
   LOGIN = "Log In",
   CREATE = "Create Account",
 }
-export function DarkLogin() {
+
+export default function Auth() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
