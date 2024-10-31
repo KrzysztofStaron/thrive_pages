@@ -18,20 +18,20 @@ export function Contact() {
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mt-8">
                 <Link
-                  href="https://twitter.com/yourusername"
+                  href="https://x.com/PanzerBread"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-md bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                  className="inline-flex items-center justify-center rounded-md bg-black px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                 >
                   <X className="mr-2 h-5 w-5" />
-                  Follow us on X
+                  Connect on X
                 </Link>
                 <Link
-                  href="mailto:your.email@example.com"
+                  href="mailto:k.staron314@gmail.com"
                   className="inline-flex items-center justify-center rounded-md bg-gray-700 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-gray-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-500"
                 >
                   <Mail className="mr-2 h-5 w-5" />
-                  Email Us
+                  Email Me
                 </Link>
               </div>
             </div>
