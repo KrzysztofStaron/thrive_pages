@@ -1,7 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  signInWithPopup,
+  GoogleAuthProvider,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
+} from "firebase/auth";
 import { auth } from "../firebase/config";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -20,6 +27,11 @@ export function DarkLogin() {
   const [error, setError] = useState("");
 
   const [mode, setMode] = useState(state.LOGIN);
+  onAuthStateChanged(auth, user => {
+    if (user) {
+      window.location.href = "/app";
+    }
+  });
 
   const continueWithGoogle = async () => {
     setError("");
@@ -42,6 +54,26 @@ export function DarkLogin() {
       console.log("logged in");
     } catch (error: any) {
       setError(error.message);
+    }
+  }
+
+  async function signUp() {
+    setError("");
+
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+
+      console.log("logged in");
+    } catch (error: any) {
+      setError(error.message);
+    }
+  }
+
+  function handleButton() {
+    if (mode === state.CREATE) {
+      signUp();
+    } else {
+      logIn();
     }
   }
 
@@ -79,10 +111,21 @@ export function DarkLogin() {
               className="mt-1 bg-gray-700 border-gray-600 text-white placeholder-gray-400"
             />
           </div>
-          <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white" onClick={logIn}>
+          <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white" onClick={handleButton}>
             {mode}
           </Button>
-          <button className="text-blue-400 text-center">Create Account instead</button>
+          <button
+            className="text-blue-400 text-center"
+            onClick={() => {
+              if (mode === state.LOGIN) {
+                setMode(state.CREATE);
+              } else if (mode === state.CREATE) {
+                setMode(state.LOGIN);
+              }
+            }}
+          >
+            {mode === state.LOGIN ? "Create Account instead" : "Already have an account?"}
+          </button>
         </div>
         <div className="flex items-center justify-center">
           <span className="w-full border-t border-gray-600"></span>

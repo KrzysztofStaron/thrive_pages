@@ -10,11 +10,17 @@ import { getAuth } from "firebase/auth";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyA6eR4SqMFEk_2J-5f30mBp66NGLRLyEcc",
+
   authDomain: "thrivepages.firebaseapp.com",
+
   projectId: "thrivepages",
-  storageBucket: "thrivepages.appspot.com",
+
+  storageBucket: "thrivepages.firebasestorage.app",
+
   messagingSenderId: "320040146758",
+
   appId: "1:320040146758:web:66fc7f63fbc35e70377747",
+
   measurementId: "G-JWN6T8DPPT",
 };
 
@@ -22,5 +28,3 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const auth = getAuth(app);
-
-export const analytics = getAnalytics(app);
