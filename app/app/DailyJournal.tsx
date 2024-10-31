@@ -139,23 +139,21 @@ const DailyJournal = () => {
       <div className="flex items-center justify-between mb-8">
         <Button
           variant="outline"
-          className="flex items-center gap-2 bg-gray-900"
+          className="flex items-center gap-2 bg-gray-900 text-white border border-gray-700 rounded-md px-4 py-2 hover:bg-gray-800 transition-colors"
           onClick={() => setDate(d => new Date(d.setDate(d.getDate() - 1)))}
         >
-          <ChevronLeft className="w-4 h-4" />
-          Previous Day
+          <ChevronLeft className="w-4 h-4 text-white" />
         </Button>
         <h1 className="text-3xl font-bold">{formatDate(date)}</h1>
-        {formatDate(new Date(date.getTime() - 86400000)) !== formatDate(new Date()) ? (
-          <Button
-            variant="outline"
-            className="flex items-center gap-2 bg-gray-900"
-            onClick={() => setDate(prevDate => new Date(prevDate.setDate(prevDate.getDate() + 1)))}
-          >
-            Next Day
-            <ChevronRight className="w-4 h-4" />
-          </Button>
-        ) : null}
+
+        <Button
+          variant="outline"
+          className="flex items-center gap-2 bg-gray-900 text-white border border-gray-700 rounded-md px-4 py-2 hover:bg-gray-800 transition-colors"
+          onClick={() => setDate(prevDate => new Date(prevDate.setDate(prevDate.getDate() + 1)))}
+          disabled={formatDate(new Date(date.getTime() - 86400000)) === formatDate(new Date())}
+        >
+          <ChevronRight className="w-4 h-4 text-white" />
+        </Button>
       </div>
 
       <div className="bg-gray-800 p-6 rounded-lg shadow-md">
