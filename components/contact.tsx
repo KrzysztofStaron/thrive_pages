@@ -5,7 +5,7 @@ import { Twitter, Mail, X } from "lucide-react";
 
 export function Contact() {
   return (
-    <div className="flex flex-col h-full bg-gray-900 justify-center">
+    <div className="flex flex-col h-full bg-gray-900 justify-center" id="contact">
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
