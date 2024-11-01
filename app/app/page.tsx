@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import DailyJournal from "./DailyJournal";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase/config";
+import { DarkJournalSummaryComponent } from "@/components/dark-journal-summary";
 
 const page = () => {
   useEffect(() => {
@@ -17,6 +18,7 @@ const page = () => {
       unsub();
     };
   });
+  return <DarkJournalSummaryComponent />;
   return <DailyJournal />;
 };
 
