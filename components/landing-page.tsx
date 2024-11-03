@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { PenLine, Sparkles, TrendingUp, Users, Focus, Shield, Menu, X } from "lucide-react";
+import { PenLine, Sparkles, TrendingUp, Users, Focus, Shield, Menu, X, BarChart, Calendar } from "lucide-react";
 import { Contact } from "./contact";
 import { useState } from "react";
 
@@ -30,6 +30,9 @@ export function LandingPageComponent() {
           <Link className="text-sm font-medium hover:underline underline-offset-4 text-gray-200" href="#features">
             Features
           </Link>
+          <Link className="text-sm font-medium hover:underline underline-offset-4 text-gray-200" href="#analytics">
+            Analytics
+          </Link>
           <Link className="text-sm font-medium hover:underline underline-offset-4 text-gray-200" href="#contact">
             Contact
           </Link>
@@ -48,7 +51,14 @@ export function LandingPageComponent() {
               </Link>
               <Link
                 className="text-sm font-medium hover:underline underline-offset-4 text-gray-200"
-                href="#"
+                href="#analytics"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Analytics
+              </Link>
+              <Link
+                className="text-sm font-medium hover:underline underline-offset-4 text-gray-200"
+                href="#contact"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Contact
@@ -101,7 +111,9 @@ export function LandingPageComponent() {
                 <div className="flex flex-col items-center space-y-4 p-6 md:p-4 rounded-lg bg-gray-900/50 md:bg-transparent">
                   <TrendingUp className="h-10 w-10 md:h-12 md:w-12 text-blue-400" />
                   <h2 className="text-lg md:text-xl font-bold text-white">Track Your Progress</h2>
-                  <p className="text-sm md:text-base text-gray-300 text-center">Go back and reflect on your growth</p>
+                  <p className="text-sm md:text-base text-gray-300 text-center">
+                    Go back and reflect on your growth with weekly and monthly summaries.
+                  </p>
                 </div>
                 <div className="flex flex-col items-center space-y-4 p-6 md:p-4 rounded-lg bg-gray-900/50 md:bg-transparent">
                   <Shield className="h-10 w-10 md:h-12 md:w-12 text-blue-400" />
@@ -128,6 +140,14 @@ export function LandingPageComponent() {
                 </p>
               </div>
               <div className="flex flex-col justify-center space-y-6 md:space-y-4">
+                <div className="flex items-start md:items-center space-x-4 rounded-lg border p-6 md:p-4 border-gray-700 bg-gray-900/50 md:bg-transparent">
+                  <BarChart className="h-6 w-6 text-blue-400 flex-shrink-0" />
+                  <div className="space-y-2 md:space-y-1">
+                    <h3 className="font-bold text-white">Progress Reports</h3>
+                    <p className="text-sm text-gray-300">Get a snapshot of your week and month.</p>
+                  </div>
+                </div>
+
                 <div className="flex items-start md:items-center space-x-4 rounded-lg border p-6 md:p-4 border-gray-700 bg-gray-900/50 md:bg-transparent">
                   <PenLine className="h-6 w-6 text-blue-400 flex-shrink-0" />
                   <div className="space-y-2 md:space-y-1">
@@ -157,6 +177,7 @@ export function LandingPageComponent() {
             </div>
           </div>
         </section>
+
         <Contact />
       </main>
     </div>
