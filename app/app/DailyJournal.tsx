@@ -12,7 +12,7 @@ import { auth, db } from "../firebase/config";
 import { doc, getDoc, setDoc, collection } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 import { debounce } from "lodash";
-import getQuote from "../getQuote";
+import getQuote from "../hooks/getQuote";
 
 interface Goal {
   text: string;
