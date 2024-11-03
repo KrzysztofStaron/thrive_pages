@@ -34,9 +34,8 @@ export interface JournalEntry {
 
 const DEFAULT_GOALS = Array(4).fill({ text: "", completed: false });
 
-const DailyJournal = () => {
+const DailyJournal = ({ date }: { date: Date }) => {
   const [userId, setUserId] = useState("");
-  const [date, setDate] = useState(new Date());
   const [isLoading, setIsLoading] = useState(true);
   const [entry, setEntry] = useState<JournalEntry>({
     date: date.setHours(0, 0, 0, 0),
@@ -135,27 +134,7 @@ const DailyJournal = () => {
   }
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 space-y-8 bg-gray-900 text-gray-100">
-      <div className="flex items-center justify-between mb-8">
-        <Button
-          variant="outline"
-          className="flex items-center gap-2 bg-gray-900 text-white border border-gray-700 rounded-md px-4 py-2 hover:bg-gray-800 transition-colors"
-          onClick={() => setDate(d => new Date(d.setDate(d.getDate() - 1)))}
-        >
-          <ChevronLeft className="w-4 h-4 text-white" />
-        </Button>
-        <h1 className="text-3xl font-bold">{formatDate(date)}</h1>
-
-        <Button
-          variant="outline"
-          className="flex items-center gap-2 bg-gray-900 text-white border border-gray-700 rounded-md px-4 py-2 hover:bg-gray-800 transition-colors"
-          onClick={() => setDate(prevDate => new Date(prevDate.setDate(prevDate.getDate() + 1)))}
-          disabled={formatDate(new Date(date.getTime() - 86400000)) === formatDate(new Date())}
-        >
-          <ChevronRight className="w-4 h-4 text-white" />
-        </Button>
-      </div>
-
+    <>
       <div className="bg-gray-800 p-6 rounded-lg shadow-md">
         <div className="relative">
           <Quote className="absolute top-0 left-0 text-gray-700 transform -translate-x-2 -translate-y-2 w-8 h-8 opacity-50" />
@@ -165,7 +144,6 @@ const DailyJournal = () => {
           </blockquote>
         </div>
       </div>
-
       <div className="bg-gray-800 p-6 rounded-lg shadow-md space-y-4">
         <h2 className="text-2xl font-semibold mb-4">Status</h2>
         <motion.div
@@ -206,7 +184,6 @@ const DailyJournal = () => {
           </div>
         </div>
       </div>
-
       <div className="bg-gray-800 p-6 rounded-lg shadow-md space-y-4">
         <h2 className="text-2xl font-semibold mb-4">4 Main Goals for the Day</h2>
         {entry.goals.map((goal, index) => (
@@ -235,7 +212,6 @@ const DailyJournal = () => {
           </div>
         ))}
       </div>
-
       <div className="bg-gray-800 p-6 rounded-lg shadow-md space-y-4">
         <h2 className="text-2xl font-semibold mb-4">Daily Reflection</h2>
         <div>
@@ -265,7 +241,7 @@ const DailyJournal = () => {
           />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
@@ -276,7 +252,7 @@ export const formatDate = (date: Date) => {
   )}-${date.getFullYear()}`;
 };
 
-const LoadingSpinner = () => (
+export const LoadingSpinner = () => (
   <div className="fixed inset-0 bg-gray-900/50 backdrop-blur-sm flex items-center justify-center z-50">
     <motion.div
       initial={{ opacity: 0, scale: 0.5 }}

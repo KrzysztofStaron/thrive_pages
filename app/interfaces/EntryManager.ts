@@ -1,6 +1,7 @@
-import { doc, getDoc, setDoc } from "firebase/firestore";
+import { collection, doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "../firebase/config";
 import { formatDate, JournalEntry } from "../app/DailyJournal";
+import { SummaryData } from "@/app/app/SummaryDisplay";
 
 export class EntryManager {
   userId: string;
@@ -13,11 +14,15 @@ export class EntryManager {
     const dataDoc = doc(db, this.userId, formattedDate);
     const dataSnap = await getDoc(dataDoc);
 
-    return dataSnap.data() as JournalEntry;
+    if (dataSnap.exists()) {
+      return dataSnap.data() as JournalEntry;
+    } else {
+      return null;
+    }
   }
 
   async setEntry(data: JournalEntry) {
-    const dataDoc = doc(db, this.userId, formatDate(new Date(data.date)));
-    const dataSnap = await setDoc(dataDoc, data);
+    const formattedDate = formatDate(new Date(data.date));
+    await setDoc(doc(collection(db, this.userId), formattedDate), data);
   }
 }
