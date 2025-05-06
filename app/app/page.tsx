@@ -64,11 +64,11 @@ const page = () => {
   }
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 space-y-8 bg-gray-900 text-gray-100">
+    <div className="w-full max-w-4xl mx-auto p-6 space-y-8 bg-zinc-900 text-zinc-100">
       <div className="flex items-center justify-between mb-8">
         <Button
           variant="outline"
-          className="flex items-center gap-2 bg-gray-900 text-white border border-gray-700 rounded-md px-4 py-2 hover:bg-gray-800 transition-colors"
+          className="flex items-center gap-2 bg-zinc-900 text-white border border-zinc-700 rounded-md px-4 py-2 hover:bg-zinc-800 transition-colors"
           onClick={() => changeDate(-1)}
         >
           <ChevronLeft className="w-4 h-4 text-white" />
@@ -77,7 +77,7 @@ const page = () => {
 
         <Button
           variant="outline"
-          className="flex items-center gap-2 bg-gray-900 text-white border border-gray-700 rounded-md px-4 py-2 hover:bg-gray-800 transition-colors"
+          className="flex items-center gap-2 bg-zinc-900 text-white border border-zinc-700 rounded-md px-4 py-2 hover:bg-zinc-800 transition-colors"
           onClick={() => changeDate(1)}
           disabled={formatDate(new Date(date.getTime() - 86400000)) === formatDate(new Date()) && !showSummary}
         >

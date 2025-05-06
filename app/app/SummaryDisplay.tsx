@@ -43,8 +43,8 @@ var getMonth = false;
 const CustomTooltip = ({ active, payload, label }: CustomTooltipProps) => {
   if (active && payload && payload.length) {
     return (
-      <div className="bg-gray-800 p-4 rounded-lg border border-gray-700 dark:border-neutral-800">
-        <p className="text-gray-200 mb-2">{label}</p>
+      <div className="bg-zinc-800 p-4 rounded-lg border border-zinc-700 dark:border-neutral-800">
+        <p className="text-zinc-200 mb-2">{label}</p>
         {payload.map((entry, index) => (
           <p key={index} className="text-sm" style={{ color: entry.color }}>
             {entry.name}: {entry.value}
@@ -157,13 +157,13 @@ export default function SummaryDisplay({ lastDay }: { lastDay: Date }) {
   }
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 sm:p-6 space-y-4 sm:space-y-8 bg-gray-900 text-gray-100">
+    <div className="w-full max-w-4xl mx-auto p-4 sm:p-6 space-y-4 sm:space-y-8 bg-zinc-900 text-zinc-100">
       <Tabs defaultValue="weekly" className="w-full">
-        <TabsList className="grid w-full grid-cols-2 bg-gray-800 h-10 sm:h-auto">
-          <TabsTrigger value="weekly" className="text-xs sm:text-base data-[state=active]:bg-gray-700">
+        <TabsList className="grid w-full grid-cols-2 bg-zinc-800 h-10 sm:h-auto">
+          <TabsTrigger value="weekly" className="text-xs sm:text-base data-[state=active]:bg-zinc-700">
             Weekly Summary
           </TabsTrigger>
-          <TabsTrigger value="monthly" className="text-xs sm:text-base data-[state=active]:bg-gray-700">
+          <TabsTrigger value="monthly" className="text-xs sm:text-base data-[state=active]:bg-zinc-700">
             Monthly Summary
           </TabsTrigger>
         </TabsList>
@@ -244,74 +244,74 @@ function SummaryContent({
 
   return (
     <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-      <Card className="bg-gray-800 border-gray-700">
+      <Card className="bg-zinc-800 border-zinc-700">
         <CardHeader>
-          <CardTitle className="text-base sm:text-xl text-gray-100">No Fap Progress</CardTitle>
-          <CardDescription className="text-xs sm:text-sm text-gray-400">0-100%</CardDescription>
+          <CardTitle className="text-base sm:text-xl text-zinc-100">No Fap Progress</CardTitle>
+          <CardDescription className="text-xs sm:text-sm text-zinc-400">0-100%</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="text-2xl sm:text-4xl font-bold text-gray-100">
+          <div className="text-2xl sm:text-4xl font-bold text-zinc-100">
             {((data.noFapDays / (period === "Weekly" ? 7 : 30)) * 100).toFixed(1)}%
           </div>
-          <Progress value={(data.noFapDays / (period === "Weekly" ? 7 : 30)) * 100} className="mt-2 bg-gray-700" />
+          <Progress value={(data.noFapDays / (period === "Weekly" ? 7 : 30)) * 100} className="mt-2 bg-zinc-700" />
         </CardContent>
       </Card>
 
-      <Card className="bg-gray-800 border-gray-700">
+      <Card className="bg-zinc-800 border-zinc-700">
         <CardHeader>
-          <CardTitle className="text-base sm:text-xl text-gray-100">Average Wellbeing</CardTitle>
-          <CardDescription className="text-xs sm:text-sm text-gray-400">Scale of 1-10</CardDescription>
+          <CardTitle className="text-base sm:text-xl text-zinc-100">Average Wellbeing</CardTitle>
+          <CardDescription className="text-xs sm:text-sm text-zinc-400">Scale of 1-10</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="text-2xl sm:text-4xl font-bold text-gray-100">{data.averageWellbeing.toFixed(1)}</div>
-          <Progress value={data.averageWellbeing * 10} className="mt-2 bg-gray-700" />
+          <div className="text-2xl sm:text-4xl font-bold text-zinc-100">{data.averageWellbeing.toFixed(1)}</div>
+          <Progress value={data.averageWellbeing * 10} className="mt-2 bg-zinc-700" />
         </CardContent>
       </Card>
 
-      <Card className="bg-gray-800 border-gray-700">
+      <Card className="bg-zinc-800 border-zinc-700">
         <CardHeader>
-          <CardTitle className="text-base sm:text-xl text-gray-100">Average Productivity</CardTitle>
-          <CardDescription className="text-xs sm:text-sm text-gray-400">Scale of 1-10</CardDescription>
+          <CardTitle className="text-base sm:text-xl text-zinc-100">Average Productivity</CardTitle>
+          <CardDescription className="text-xs sm:text-sm text-zinc-400">Scale of 1-10</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="text-2xl sm:text-4xl font-bold text-gray-100">{data.averageProductivity.toFixed(1)}</div>
-          <Progress value={data.averageProductivity * 10} className="mt-2 bg-gray-700" />
+          <div className="text-2xl sm:text-4xl font-bold text-zinc-100">{data.averageProductivity.toFixed(1)}</div>
+          <Progress value={data.averageProductivity * 10} className="mt-2 bg-zinc-700" />
         </CardContent>
       </Card>
 
-      <Card className="bg-gray-800 border-gray-700">
+      <Card className="bg-zinc-800 border-zinc-700">
         <CardHeader>
-          <CardTitle className="text-base sm:text-xl text-gray-100">Goals Completed</CardTitle>
-          <CardDescription className="text-xs sm:text-sm text-gray-400">{period} progress</CardDescription>
+          <CardTitle className="text-base sm:text-xl text-zinc-100">Goals Completed</CardTitle>
+          <CardDescription className="text-xs sm:text-sm text-zinc-400">{period} progress</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="text-2xl sm:text-4xl font-bold text-gray-100">
+          <div className="text-2xl sm:text-4xl font-bold text-zinc-100">
             {data.totalGoals != 0 ? `${data.completedGoals}/${data.totalGoals}` : "No goals Set"}
           </div>
           {data.totalGoals > 0 ? (
-            <Progress value={(data.completedGoals / data.totalGoals) * 100} className="mt-2 bg-gray-700" />
+            <Progress value={(data.completedGoals / data.totalGoals) * 100} className="mt-2 bg-zinc-700" />
           ) : null}
         </CardContent>
       </Card>
 
-      <Card className="bg-gray-800 border-gray-700">
+      <Card className="bg-zinc-800 border-zinc-700">
         <CardHeader>
-          <CardTitle className="text-base sm:text-xl text-gray-100">Lessons of the {period}</CardTitle>
-          <CardDescription className="text-xs sm:text-sm text-gray-400">Key insights</CardDescription>
+          <CardTitle className="text-base sm:text-xl text-zinc-100">Lessons of the {period}</CardTitle>
+          <CardDescription className="text-xs sm:text-sm text-zinc-400">Key insights</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="text-base sm:text-xl font-semibold text-gray-100 min-h-[3rem] flex items-center justify-center text-center">
+          <div className="text-base sm:text-xl font-semibold text-zinc-100 min-h-[3rem] flex items-center justify-center text-center">
             {data.lessons[lessonsCardIndex] || "None"}
           </div>
           {data.lessons.length > 1 ? (
             <div className="flex justify-between mt-4">
-              <button onClick={prevLessonsCard} className="text-gray-400 hover:text-gray-200">
+              <button onClick={prevLessonsCard} className="text-zinc-400 hover:text-zinc-200">
                 <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
-              <div className="text-gray-500 text-sm">
+              <div className="text-zinc-500 text-sm">
                 {lessonsCardIndex + 1} / {data.lessons.length}
               </div>
-              <button onClick={nextLessonsCard} className="text-gray-400 hover:text-gray-200">
+              <button onClick={nextLessonsCard} className="text-zinc-400 hover:text-zinc-200">
                 <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
             </div>
@@ -319,24 +319,24 @@ function SummaryContent({
         </CardContent>
       </Card>
 
-      <Card className="bg-gray-800 border-gray-700">
+      <Card className="bg-zinc-800 border-zinc-700">
         <CardHeader>
-          <CardTitle className="text-base sm:text-xl text-gray-100">Hard Things I Did</CardTitle>
-          <CardDescription className="text-xs sm:text-sm text-gray-400">Challenges conquered</CardDescription>
+          <CardTitle className="text-base sm:text-xl text-zinc-100">Hard Things I Did</CardTitle>
+          <CardDescription className="text-xs sm:text-sm text-zinc-400">Challenges conquered</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="text-base sm:text-xl font-semibold text-gray-100 min-h-[3rem] flex items-center justify-center text-center">
+          <div className="text-base sm:text-xl font-semibold text-zinc-100 min-h-[3rem] flex items-center justify-center text-center">
             {data.hardThings[hardThingsCardIndex] || "None"}
           </div>
           {data.hardThings.length > 1 ? (
             <div className="flex justify-between mt-4">
-              <button onClick={prevHardThingsCard} className="text-gray-400 hover:text-gray-200">
+              <button onClick={prevHardThingsCard} className="text-zinc-400 hover:text-zinc-200">
                 <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
-              <div className="text-gray-500 text-sm">
+              <div className="text-zinc-500 text-sm">
                 {hardThingsCardIndex + 1} / {data.hardThings.length}
               </div>
-              <button onClick={nextHardThingsCard} className="text-gray-400 hover:text-gray-200">
+              <button onClick={nextHardThingsCard} className="text-zinc-400 hover:text-zinc-200">
                 <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
               </button>
             </div>
@@ -344,10 +344,10 @@ function SummaryContent({
         </CardContent>
       </Card>
 
-      <Card className="col-span-full bg-gray-800 border-gray-700">
+      <Card className="col-span-full bg-zinc-800 border-zinc-700">
         <CardHeader>
-          <CardTitle className="text-base sm:text-xl text-gray-100">{period} Wellbeing & Productivity</CardTitle>
-          <CardDescription className="text-xs sm:text-sm text-gray-400">Daily overview</CardDescription>
+          <CardTitle className="text-base sm:text-xl text-zinc-100">{period} Wellbeing & Productivity</CardTitle>
+          <CardDescription className="text-xs sm:text-sm text-zinc-400">Daily overview</CardDescription>
         </CardHeader>
         <CardContent className="h-60 sm:h-80" ref={containerRef}>
           <ResponsiveContainer width="100%" height="100%" className="relative right-8">

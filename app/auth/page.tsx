@@ -79,15 +79,15 @@ export default function Auth() {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-900">
-      <div className="w-full max-w-md p-8 space-y-6 bg-gray-800 rounded-lg shadow-xl">
+    <div className="flex items-center justify-center min-h-screen bg-zinc-900">
+      <div className="w-full max-w-md p-8 space-y-6 bg-zinc-800 rounded-lg shadow-xl">
         <h1 className="text-2xl font-bold text-center text-white">
           {mode == state.LOGIN ? "Log in to your account" : "Create account"}
         </h1>
         {error && <p className="text-sm text-red-400">{error}</p>}
         <div className="space-y-4">
           <div>
-            <Label htmlFor="email" className="text-gray-300">
+            <Label htmlFor="email" className="text-zinc-300">
               Email
             </Label>
             <Input
@@ -96,11 +96,11 @@ export default function Auth() {
               placeholder="name@example.com"
               value={email}
               onChange={e => setEmail(e.target.value)}
-              className="mt-1 bg-gray-700 border-gray-600 text-white placeholder-gray-400"
+              className="mt-1 bg-zinc-700 border-zinc-600 text-white placeholder-zinc-400"
             />
           </div>
           <div>
-            <Label htmlFor="password" className="text-gray-300">
+            <Label htmlFor="password" className="text-zinc-300">
               Password
             </Label>
             <Input
@@ -109,7 +109,7 @@ export default function Auth() {
               placeholder="••••••••"
               value={password}
               onChange={e => setPassword(e.target.value)}
-              className="mt-1 bg-gray-700 border-gray-600 text-white placeholder-gray-400"
+              className="mt-1 bg-zinc-700 border-zinc-600 text-white placeholder-zinc-400"
             />
           </div>
           <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white" onClick={handleButton}>
@@ -129,13 +129,13 @@ export default function Auth() {
           </button>
         </div>
         <div className="flex items-center justify-center">
-          <span className="w-full border-t border-gray-600"></span>
-          <span className="px-3 text-gray-400">Or</span>
-          <span className="w-full border-t border-gray-600"></span>
+          <span className="w-full border-t border-zinc-600"></span>
+          <span className="px-3 text-zinc-400">Or</span>
+          <span className="w-full border-t border-zinc-600"></span>
         </div>
         <Button
           onClick={continueWithGoogle}
-          className="w-full bg-gray-700 hover:bg-gray-600 text-white flex items-center justify-center"
+          className="w-full bg-zinc-700 hover:bg-zinc-600 text-white flex items-center justify-center"
         >
           <FaGoogle className="mr-2" />
           Continue with Google

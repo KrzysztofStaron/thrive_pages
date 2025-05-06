@@ -147,16 +147,16 @@ const DailyJournal = ({ date }: { date: Date }) => {
 
   return (
     <>
-      <div className="bg-gray-800 p-6 rounded-lg shadow-md">
+      <div className="bg-zinc-800 p-6 rounded-lg shadow-md">
         <div className="relative">
-          <Quote className="absolute top-0 left-0 text-gray-700 transform -translate-x-2 -translate-y-2 w-8 h-8 opacity-50" />
+          <Quote className="absolute top-0 left-0 text-zinc-700 transform -translate-x-2 -translate-y-2 w-8 h-8 opacity-50" />
           <blockquote className="pl-8">
-            <p className="text-xl font-medium text-gray-100 mb-2">"{entry.quote.text}"</p>
-            <footer className="text-sm text-gray-400">— {entry.quote.author}</footer>
+            <p className="text-xl font-medium text-zinc-100 mb-2">"{entry.quote.text}"</p>
+            <footer className="text-sm text-zinc-400">— {entry.quote.author}</footer>
           </blockquote>
         </div>
       </div>
-      <div className="bg-gray-800 p-6 rounded-lg shadow-md space-y-4">
+      <div className="bg-zinc-800 p-6 rounded-lg shadow-md space-y-4">
         <h2 className="text-2xl font-semibold mb-4">Status</h2>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -165,7 +165,7 @@ const DailyJournal = ({ date }: { date: Date }) => {
           onClick={() => updateEntry({ noFap: !entry.noFap })}
           className="cursor-pointer"
         >
-          <div className="flex items-center space-x-3 bg-gray-700 p-4 rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105">
+          <div className="flex items-center space-x-3 bg-zinc-700 p-4 rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105">
             <Checkbox checked={entry.noFap} className="h-6 w-6 border-2 border-white" setChecked={() => {}} />
             <label className="text-xl font-bold text-white cursor-pointer select-none">No Fap Challenge</label>
           </div>
@@ -196,7 +196,7 @@ const DailyJournal = ({ date }: { date: Date }) => {
           </div>
         </div>
       </div>
-      <div className="bg-gray-800 p-6 rounded-lg shadow-md space-y-4">
+      <div className="bg-zinc-800 p-6 rounded-lg shadow-md space-y-4">
         <h2 className="text-2xl font-semibold mb-4">4 Main Goals for the Day</h2>
         {entry.goals.map((goal, index) => (
           <div key={index} className="flex items-center space-x-2">
@@ -208,7 +208,7 @@ const DailyJournal = ({ date }: { date: Date }) => {
               placeholder={`Goal ${index + 1}`}
               value={goal.text}
               onChange={e => updateGoal(index, { text: e.target.value })}
-              className="flex-grow bg-gray-700 text-gray-100 border-gray-600 focus:border-gray-500"
+              className="flex-grow bg-zinc-700 text-zinc-100 border-zinc-600 focus:border-zinc-500"
             />
             <AnimatePresence>
               {goal.completed && (
@@ -224,7 +224,7 @@ const DailyJournal = ({ date }: { date: Date }) => {
           </div>
         ))}
       </div>
-      <div className="bg-gray-800 p-6 rounded-lg shadow-md space-y-4">
+      <div className="bg-zinc-800 p-6 rounded-lg shadow-md space-y-4">
         <h2 className="text-2xl font-semibold mb-4">Daily Reflection</h2>
         <div>
           <label className="block text-sm font-medium mb-2">1 thing I did that sucked...</label>
@@ -236,7 +236,7 @@ const DailyJournal = ({ date }: { date: Date }) => {
                 reflection: { ...entry.reflection, suckingThing: e.target.value },
               })
             }
-            className="bg-gray-700 text-gray-100 border-gray-600 focus:border-gray-500"
+            className="bg-zinc-700 text-zinc-100 border-zinc-600 focus:border-zinc-500"
           />
         </div>
         <div>
@@ -249,7 +249,7 @@ const DailyJournal = ({ date }: { date: Date }) => {
                 reflection: { ...entry.reflection, lesson: e.target.value },
               })
             }
-            className="bg-gray-700 text-gray-100 border-gray-600 focus:border-gray-500"
+            className="bg-zinc-700 text-zinc-100 border-zinc-600 focus:border-zinc-500"
           />
         </div>
       </div>
@@ -265,15 +265,15 @@ export const formatDate = (date: Date) => {
 };
 
 export const LoadingSpinner = () => (
-  <div className="fixed inset-0 bg-gray-900/50 backdrop-blur-sm flex items-center justify-center z-50">
+  <div className="fixed inset-0 bg-zinc-900/50 backdrop-blur-sm flex items-center justify-center z-50">
     <motion.div
       initial={{ opacity: 0, scale: 0.5 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.5 }}
-      className="bg-gray-800 p-8 rounded-lg shadow-xl flex flex-col items-center space-y-4"
+      className="bg-zinc-800 p-8 rounded-lg shadow-xl flex flex-col items-center space-y-4"
     >
       <Loader2 className="w-12 h-12 text-blue-500 animate-spin" />
-      <p className="text-lg font-medium text-gray-100">Loading your journal...</p>
+      <p className="text-lg font-medium text-zinc-100">Loading your journal...</p>
     </motion.div>
   </div>
 );
