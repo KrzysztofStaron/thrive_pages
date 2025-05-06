@@ -79,6 +79,18 @@ const DailyJournal = ({ date }: { date: Date }) => {
     setIsLoading(true);
     fetched.current = false;
 
+    const previousDate = new Date(date);
+    previousDate.setDate(previousDate.getDate() - 1);
+    const formattedPreviousDate = formatDate(previousDate);
+    const previousDocRef = doc(db, userId, formattedPreviousDate);
+    const previousSnapshot = await getDoc(previousDocRef);
+
+    let previousEntry: JournalEntry | null = null;
+
+    if (previousSnapshot.exists()) {
+      previousEntry = previousSnapshot.data() as JournalEntry;
+    }
+
     try {
       const formattedDate = formatDate(date);
       const docRef = doc(db, userId, formattedDate);
@@ -93,7 +105,7 @@ const DailyJournal = ({ date }: { date: Date }) => {
           noFap: false,
           wellbeing: 5,
           productivity: 5,
-          goals: DEFAULT_GOALS,
+          goals: previousEntry?.goals || DEFAULT_GOALS,
           reflection: { suckingThing: "", lesson: "" },
         };
         setEntry(newEntry);
